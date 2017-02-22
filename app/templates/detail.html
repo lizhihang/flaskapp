@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="blog">
+    <meta name="author" content="Lzh">
+
+    <title>Blog Post - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/css/detail.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Lzh Blog</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    {% if not current_user.is_authenticated %}
+                   <li>
+                       <a href="{{ url_for('login_page') }}">Login</a>
+                        <!--<a href="#">About</a>-->
+                   </li>
+                    {% else %}
+                   <li>
+                       <a href="#">Hi,{{ current_user.email }} !</a>
+                   </li>
+<!---->
+                   <li>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                   </li>
+                   {% endif %}
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-12" id="blogDetail">
+
+                <!--&lt;!&ndash; Blog Post &ndash;&gt;-->
+
+                <!--&lt;!&ndash; Title &ndash;&gt;-->
+                <!--<h1>Blog Post Title</h1>-->
+
+                <!--&lt;!&ndash; Author &ndash;&gt;-->
+                <!--<p class="lead">-->
+                    <!--by <a href="#">Start Bootstrap</a>-->
+                <!--</p>-->
+
+                <!--<hr>-->
+
+                <!--&lt;!&ndash; Date/Time &ndash;&gt;-->
+                <!--<p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>-->
+
+                <!--&lt;!&ndash;<hr>&ndash;&gt;-->
+
+                <!--&lt;!&ndash;&lt;!&ndash; Preview Image &ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;<img class="img-responsive" src="http://placehold.it/900x300" alt="">&ndash;&gt;-->
+
+                <!--<hr>-->
+
+                <!--&lt;!&ndash; Post Content &ndash;&gt;-->
+                <!--<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>-->
+                <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>-->
+
+                <!--<hr>-->
+
+                <!--&lt;!&ndash; Blog Comments &ndash;&gt;-->
+                <!--&lt;!&ndash; Posted Comments &ndash;&gt;-->
+
+
+            </div>
+            <div class="col-lg-12" id="commentList">
+
+                <!--&lt;!&ndash; Comment &ndash;&gt;-->
+                <!--<div class="media">-->
+                    <!--<a class="pull-left" href="#">-->
+                        <!--<img class="media-object" src="http://placehold.it/64x64" alt="">-->
+                    <!--</a>-->
+                    <!--<div class="media-body">-->
+                        <!--<h4 class="media-heading">Start Bootstrap-->
+                            <!--<small>August 25, 2014 at 9:30 PM</small>-->
+                        <!--</h4>-->
+                        <!--Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; Comment &ndash;&gt;-->
+                <!--<div class="media">-->
+                    <!--<a class="pull-left" href="#">-->
+                        <!--<img class="media-object" src="http://placehold.it/64x64" alt="">-->
+                    <!--</a>-->
+                    <!--<div class="media-body">-->
+                        <!--<h4 class="media-heading">Start Bootstrap-->
+                            <!--<small>August 25, 2014 at 9:30 PM</small>-->
+                        <!--</h4>-->
+                        <!--Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                        <!--&lt;!&ndash; Nested Comment &ndash;&gt;-->
+                        <!--<div class="media">-->
+                            <!--<a class="pull-left" href="#">-->
+                                <!--<img class="media-object" src="http://placehold.it/64x64" alt="">-->
+                            <!--</a>-->
+                            <!--<div class="media-body">-->
+                                <!--<h4 class="media-heading">Nested Start Bootstrap-->
+                                    <!--<small>August 25, 2014 at 9:30 PM</small>-->
+                                <!--</h4>-->
+                                <!--Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; End Nested Comment &ndash;&gt;-->
+
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+            <div class="col-lg-12">
+
+                <hr>
+                <!-- Comments Form -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form" id="commentForm">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="Login to comment" name="content"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="postCommentButton">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; lzhblog.com 2017</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.js"></script>
+
+    <script>var userId = '{{ current_user.id }}';</script>
+
+    <script src="../static/js/detail.js"></script>
+
+    <script src="../static/js/base.js"></script>
+
+</body>
+
+</html>
