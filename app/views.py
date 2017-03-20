@@ -121,6 +121,7 @@ def get_blog_list():
     for b in blog:
         # data = json.dumps(b, default=Blog.blog2dict)
         data = Blog.blog2dict(b)
+        data.pop('content')
         app.logger.debug(data)
         blog_list.append(data)
     app.logger.debug(blog_list)
