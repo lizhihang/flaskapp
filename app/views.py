@@ -3,6 +3,8 @@ from flask import request, g
 from werkzeug.exceptions import abort
 import os, sys
 import functools
+import hashlib
+import imghdr
 
 from app import app, User, Blog, Comment, db, login_manager, login_required, logout_user, login_user, current_user
 from flask import render_template, jsonify, redirect, url_for
@@ -315,6 +317,20 @@ def upload_img():
         return jsonify(message='没发现要上传的图片')
     file_metas=request.files['image_up']
     filename=file_metas.filename    #获取图片名称
+    imagetype = imghdr.what(file_metas)  #图片类型
+    sha1=hashlib.sha1()
+    sha1.update(filename.encode('utf-8'))
+    filename=sha1.hexdigest()
+    filenumber = 0
+    tmpfilename=filename
+    while os.path.exists(app.config['UPLOAD_FOLDER'] + '/' + tmpfilename + '.' + imagetype):    #存在相同的名字在文件名加一
+        filenumber = filenumber+1
+        tmpfilename=filename + '-' + str(filenumber)
+        app.logger.debug(tmpfilename)
+    filename = tmpfilename + '.' + imagetype              # 若文件名相同， 样例：************-1.jpg 依次加一
+    app.logger.debug(os.path.exists(app.config['UPLOAD_FOLDER'] + filename))
+    app.logger.debug(filename)
+    app.logger.debug(imagetype)
     app.logger.debug(sys.path)
     app.logger.debug(app.config['UPLOAD_FOLDER'])
     file_metas.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))    #存储图片到服务器
